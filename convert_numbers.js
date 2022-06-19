@@ -1,9 +1,13 @@
-const NUMBER = parseInt(prompt('Введите число'));
-const NUMERAL_SYSTEM = parseInt(prompt('Введите систему счисления'));
-const RESULT = NUMBER.toString(NUMERAL_SYSTEM);
+function convertNumbers () {
+  const NUMBER = +prompt('Введите число');
+  const NUMERAL_SYSTEM = +prompt('Введите систему счисления');
+  const RESULT = parseInt(NUMBER, NUMERAL_SYSTEM);
+  const ERROR = console.log('Некорректный ввод!');
 
-if (isNaN(parseInt(RESULT, NUMERAL_SYSTEM))) {
-  alert('Некорректный ввод!');
+  if (isNaN(NUMBER) || isNaN(NUMERAL_SYSTEM) || (isNaN(NUMBER) && isNaN(NUMERAL_SYSTEM))) {
+    ERROR;
+  } else {
+    console.log('Ответ:', RESULT);
+  }
 }
-
-console.log('Ответ:', RESULT);
+convertNumbers()
