@@ -1,7 +1,7 @@
 // deep cloning objects
 function makeObjectDeepCopy(obj) {
   let clone = {};
-  for (const key in obj) {
+  for (let key in obj) {
     if (obj[key] instanceof Object) {
       clone[key] = makeObjectDeepCopy(obj[key]);
       continue;
@@ -21,14 +21,10 @@ function selectFromInterval(array, val1, val2) {
   }
   let result = array.filter(function (item) {
     if (val1 < val2) {
-      start = val1;
-      end = val2;
+      return item >= val1 && item <= val2;
+    } else if (val2 < val1) {
+      return item >= val2 && item <= val1;
     }
-    if (val2 < val1) {
-      start = val2;
-      end = val1;
-    }
-    return item >= start && item <= end;
   });
   return result;
 }
