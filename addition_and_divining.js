@@ -1,8 +1,8 @@
-const FIRST_NUMBER = Number(prompt('Введите первое число'));
+const FIRST_NUMBER = +prompt('Введите первое число');
 if (isNaN(FIRST_NUMBER)) {
   alert('Некорректный ввод!');
 } else {
-  const SECOND_NUMBER = Number(prompt('Введите второе число'));
+  const SECOND_NUMBER = +prompt('Введите второе число');
   if (isNaN(SECOND_NUMBER)) {
     alert('Некорректный ввод!');
   } else {
