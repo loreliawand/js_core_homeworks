@@ -1,42 +1,20 @@
 function concatString(str, sep) {
-  result = '';
-  let commonArr = [];
-  let args = {};
-  args.str = str;
-  args.sep = sep;
-  commonArr.push(args);
-  let newArr = [];
-  let separator = '';
-  let number = [];
-  return (next = function (str, sep) {
-    let args = {};
-    args.str = str;
-    args.sep = sep;
-    commonArr.push(args);
-    for (let i = 0; i < commonArr.length; i++) {
-      if (typeof commonArr[i].str !== 'string') {
-        number.push(i);
-      }
-    }
-    newArr = commonArr.slice(0, number);
-    if (newArr.length) {
-      for (let i = 0; i < newArr.length; i++) {
-        if (typeof newArr[i].sep === 'string') {
-          separator = newArr[i].sep;
-        }
-        if (typeof newArr[i].sep === 'string' || !newArr[i].sep) {
-          result = result.concat(newArr[i].str, separator);
-        } else {
-          result = result.concat(newArr[i].str);
-          separator = '';
-        }
-      }
-      if (result.slice(-1) === separator) {
-        result = result.slice(0, -1);
-      }
-      console.log(result);
+  let next = function (str, newSep, sep, acc) {
+    if (typeof str != 'string') {
+      console.log(acc);
     } else {
-      console.log(s);
+      if (typeof newSep == 'string') {
+        sep = newSep;
+      }
+      return (strNew, newSep) => next(strNew, newSep, sep, acc + str + sep);
     }
-  });
+  };
+  if (typeof sep != 'string') {
+    sep = '';
+  }
+  if (typeof str != 'string') {
+    return;
+  }
+  acc = str + sep;
+  return (str, newSep) => next(str, newSep, sep, acc);
 }
