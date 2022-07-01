@@ -65,7 +65,7 @@ class Car {
   }
 
   set yearOfManufacturing(value) {
-    if (typeof value !== 'number') {
+    if (typeof value !== 'number' || value === NaN) {
       throw new Error('Некорректный формат!');
     }
     if (value < 1900) {
@@ -82,7 +82,7 @@ class Car {
   }
 
   set maxSpeed(value) {
-    if (typeof value !== 'number') {
+    if (typeof value !== 'number' || value === NaN) {
       throw new Error('Некорректный формат!');
     }
     if (value < 100) {
@@ -99,7 +99,7 @@ class Car {
   }
 
   set maxFuelVolume(value) {
-    if (typeof value !== 'number') {
+    if (typeof value !== 'number' || value === NaN) {
       throw new Error('Некорректный формат!');
     }
     if (value < 5) {
@@ -116,7 +116,7 @@ class Car {
   }
 
   set fuelConsumption(value) {
-    if (typeof value !== 'number') {
+    if (typeof value !== 'number' || value === NaN) {
       throw new Error('Некорректный формат!');
     }
     this.#fuelConsumption = value / 100;
@@ -153,7 +153,11 @@ class Car {
   }
 
   fillUpGasTank(litersOfFuel) {
-    if (typeof litersOfFuel !== 'number' || litersOfFuel <= 0) {
+    if (
+      typeof litersOfFuel !== 'number' ||
+      litersOfFuel <= 0 ||
+      litersOfFuel === NaN
+    ) {
       throw new Error('Неверное количество топлива для заправки');
     }
     if (litersOfFuel + this.#currentFuelVolume > this.#maxFuelVolume) {
@@ -163,10 +167,14 @@ class Car {
   }
 
   drive(speed, timeOfDriving) {
-    if (typeof speed !== 'number' || speed <= 0) {
+    if (typeof speed !== 'number' || speed <= 0 || speed === NaN) {
       throw new Error('Неверная скорость');
     }
-    if (typeof timeOfDriving !== 'number' || timeOfDriving <= 0) {
+    if (
+      typeof timeOfDriving !== 'number' ||
+      timeOfDriving <= 0 ||
+      value === NaN
+    ) {
       throw new Error('Неверное количество часов');
     }
     if (speed > this.#maxSpeed) {
