@@ -1,0 +1,51 @@
+#body {
+  background-color: antiquewhite;
+  height: 400px;
+  width: 300px;
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+}
+
+#operPad {
+  /* background-color: coral; */
+  height: 100px;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-color: black;
+  border-style: solid;
+  border-width: 3px; */
+  margin-top: 10px;
+}
+
+#operPad button {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+#numPad {
+  /* background-color: cadetblue; */
+  height: 200px;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-color: black;
+  border-style: solid;
+  border-width: 3px; */
+  margin-top: 20px;
+}
+
+#number {
+  width: 60px;
+  height: 30px;
+  margin: 10px;
+}
+
+input {
+  margin: 5px;
+  height: 20px;
+  width: 80%;
+  margin-left: 10%;
+}
